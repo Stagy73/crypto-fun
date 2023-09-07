@@ -2,6 +2,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+  align-items: center;
 }
 li {
   gap: 10px;
@@ -9,9 +10,62 @@ li {
 }
 
 .positive-change {
-  color: green; /* Change the text color to green for positive change */
+  color: rgb(
+    81,
+    238,
+    81
+  ); /* Change the text color to green for positive change */
 }
 
 .negative-change {
-  color: red; /* Change the text color to red for negative change */
+  color: rgb(
+    236,
+    59,
+    59
+  ); /* Change the text color to red for negative change */
+}
+body {
+  background-color: black;
+}
+
+p {
+  color: aliceblue;
+  font-size: larger;
+}
+
+h1 {
+  color: aliceblue;
+}
+
+.convert {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+label {
+  color: aliceblue;
+  margin-right: 10px;
+  gap: 20px;
+  font-size: larger;
+}
+
+select {
+  width: 150px;
+  margin-bottom: 10px;
+}
+button {
+  width: 150px;
+  border-radius: 20px;
+}
+
+li {
+  color: aliceblue;
+  font-size: larger;
+}
+
+input {
+  width: 150px;
+  margin-bottom: 10px;
 }

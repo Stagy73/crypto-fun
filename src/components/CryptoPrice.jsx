@@ -10,7 +10,7 @@ function CryptoPriceConverter() {
     amountUSD: "",
     convertedPrice: 0,
   });
-  const [changePercentages, setChangePercentages] = useState({}); // Add changePercentages state
+  const [changePercentages, setChangePercentages] = useState({});
   const symbols = [
     "BTCUSDT",
     "ETHUSDT",
@@ -45,7 +45,7 @@ function CryptoPriceConverter() {
 
           if (prevPrice !== 0) {
             const changePercentage = ((price - prevPrice) / prevPrice) * 100;
-            newChangePercentages[symbol] = changePercentage;
+            newChangePercentages[symbol] = changePercentage.toFixed(4); // Update change percentage
           } else {
             newChangePercentages[symbol] = 0;
           }
@@ -60,10 +60,15 @@ function CryptoPriceConverter() {
       }
     };
 
+    // Initial fetch
     fetchCryptoPrices();
-    const intervalId = setInterval(fetchCryptoPrices, 15000);
+
+    // Set up interval to fetch prices periodically
+    const intervalId = setInterval(fetchCryptoPrices, 15000); // Fetch every 5 seconds for more frequent updates
+
+    // Cleanup interval on component unmount
     return () => clearInterval(intervalId);
-  }, [cryptoPrices]);
+  }, []); // Empty dependency array ensures it runs only once on component mount
 
   const handleAmountChange = (e) => {
     setConversionData({
@@ -94,7 +99,7 @@ function CryptoPriceConverter() {
         <h1>Crypto Prices</h1>
         <ul className="ul">
           {symbols.map((symbol, index) => {
-            const changePercentage = changePercentages[symbol] || 0; // Handle undefined values
+            const changePercentage = changePercentages[symbol] || 0;
             let changeSign = "";
             let className = "";
 
@@ -107,25 +112,23 @@ function CryptoPriceConverter() {
             return (
               <li key={symbol} className={className}>
                 {symbol}: {cryptoPrices[symbol]}{" "}
-                {changePercentage !== undefined
-                  ? `${changeSign}${Math.abs(changePercentage).toFixed(4)}%`
+                {changePercentage !== 0
+                  ? `${changeSign}${Math.abs(changePercentage)}%`
                   : "(N/A)"}
               </li>
             );
           })}
         </ul>
       </div>
-      <div>
+      <div className="convert">
         <h2>Crypto Conversion</h2>
-        <label>
-          Convert
-          <input
-            type="text"
-            value={conversionData.amountUSD}
-            onChange={handleAmountChange}
-            placeholder="Enter amount in USD"
-          />
-        </label>
+        <label>Convert</label>
+        <input
+          type="text"
+          value={conversionData.amountUSD}
+          onChange={handleAmountChange}
+          placeholder="Enter amount in USD"
+        />
         to
         <select
           value={conversionData.toCrypto}
@@ -147,6 +150,16 @@ function CryptoPriceConverter() {
           {conversionData.amountUSD} USD to {conversionData.toCrypto}:
           {conversionData.convertedPrice.toFixed(8)}
         </p>
+        <p>
+          {" "}
+          <a
+            href="https://www.binance.com/fr/activity/referral-entry/CPA?ref=CPA_00QR21HSA3"
+            target="_blank"
+          >
+            <button>Buy It Now</button>
+          </a>
+        </p>
+        <p> affiliate link !!make me some money !!!</p>
       </div>
     </div>
   );
