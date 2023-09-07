@@ -1,3 +1,5 @@
+import PropTypes from "prop-types"; // Import PropTypes
+
 function PriceChange({ currentPrice, previousPrice, interval }) {
   const calculatePercentageChange = (current, previous) => {
     if (previous === 0) return 0; // To avoid division by zero
@@ -20,5 +22,12 @@ function PriceChange({ currentPrice, previousPrice, interval }) {
     </span>
   );
 }
+
+// Define prop types for the PriceChange component
+PriceChange.propTypes = {
+  currentPrice: PropTypes.number.isRequired, // Should be a number and required
+  previousPrice: PropTypes.number.isRequired, // Should be a number and required
+  interval: PropTypes.string.isRequired, // Should be a string and required
+};
 
 export default PriceChange;
