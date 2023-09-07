@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import "./list.css";
 
 function CryptoPriceConverter() {
   const [cryptoPrices, setCryptoPrices] = useState({});
   const [conversionData, setConversionData] = useState({
     fromCrypto: "BTCUSDT",
     toCrypto: "ETHUSDT",
-    amountUSD: "", // Input field for the amount in USD
+    amountUSD: "",
     convertedPrice: 0,
   });
-  const [previousPrices, setPreviousPrices] = useState({});
-  const [changePercentages, setChangePercentages] = useState({}); // Define changePercentages state
+  const [changePercentages, setChangePercentages] = useState({}); // Add changePercentages state
   const symbols = [
     "BTCUSDT",
     "ETHUSDT",
@@ -24,43 +24,51 @@ function CryptoPriceConverter() {
     "LINKUSDT",
   ];
 
-  const fetchCryptoPrices = () => {
-    const apiRequests = symbols.map((symbol) =>
-      axios.get(`https://api.binance.com/api/v3/ticker/price?symbol=${symbol}`)
-    );
+  useEffect(() => {
+    const fetchCryptoPrices = async () => {
+      try {
+        const responses = await Promise.all(
+          symbols.map((symbol) =>
+            axios.get(
+              `https://api.binance.com/api/v3/ticker/price?symbol=${symbol}`
+            )
+          )
+        );
 
-    Promise.all(apiRequests)
-      .then((responses) => {
-        const newPrices = { ...cryptoPrices };
+        const newPrices = {};
         const newChangePercentages = {};
 
         responses.forEach((response) => {
           const symbol = response.data.symbol;
           const price = parseFloat(response.data.price);
-          const prevPrice = previousPrices[symbol];
+          const prevPrice = cryptoPrices[symbol] || 0;
 
-          // Calculate the change percentage
-          if (prevPrice !== undefined) {
+          if (prevPrice !== 0) {
             const changePercentage = ((price - prevPrice) / prevPrice) * 100;
             newChangePercentages[symbol] = changePercentage;
+          } else {
+            newChangePercentages[symbol] = 0;
           }
 
           newPrices[symbol] = price;
         });
 
-        setPreviousPrices(newPrices); // Update previousPrices state
         setCryptoPrices(newPrices);
-        setChangePercentages(newChangePercentages); // Update changePercentages state
-      })
-      .catch((error) => {
+        setChangePercentages(newChangePercentages);
+      } catch (error) {
         console.error("Error fetching data:", error);
-      });
-  };
+      }
+    };
+
+    fetchCryptoPrices();
+    const intervalId = setInterval(fetchCryptoPrices, 15000);
+    return () => clearInterval(intervalId);
+  }, [cryptoPrices]);
 
   const handleAmountChange = (e) => {
     setConversionData({
       ...conversionData,
-      amountUSD: e.target.value, // Update the amount in USD
+      amountUSD: e.target.value,
     });
   };
 
@@ -68,45 +76,45 @@ function CryptoPriceConverter() {
     const { fromCrypto, toCrypto, amountUSD } = conversionData;
     const toPrice = cryptoPrices[toCrypto];
 
-    // Calculate the converted amount using the amount in USD
-    const convertedAmountCrypto = parseFloat(amountUSD) / toPrice;
+    if (toPrice !== 0) {
+      const convertedAmountCrypto = parseFloat(amountUSD) / toPrice;
 
-    setConversionData({
-      ...conversionData,
-      convertedPrice: convertedAmountCrypto,
-    });
+      setConversionData({
+        ...conversionData,
+        convertedPrice: convertedAmountCrypto,
+      });
+    } else {
+      console.log("Conversion rate is zero.");
+    }
   };
-
-  useEffect(() => {
-    fetchCryptoPrices();
-    const intervalId = setInterval(fetchCryptoPrices, 15000);
-    return () => clearInterval(intervalId);
-  }, []);
 
   return (
     <div>
-      <h1>Crypto Prices</h1>
-      <ul>
-        {symbols.map((symbol, index) => {
-          const changePercentage = changePercentages[symbol];
-          const changeSign =
-            changePercentage !== undefined
-              ? changePercentage >= 0
-                ? "+"
-                : "-"
-              : "";
+      <div className="list">
+        <h1>Crypto Prices</h1>
+        <ul className="ul">
+          {symbols.map((symbol, index) => {
+            const changePercentage = changePercentages[symbol] || 0; // Handle undefined values
+            let changeSign = "";
+            let className = "";
 
-          return (
-            <li key={symbol}>
-              {symbol}: {cryptoPrices[symbol]}{" "}
-              {changePercentage !== undefined
-                ? `${changeSign}${Math.abs(changePercentage).toFixed(2)}%`
-                : "(N/A)"}
-            </li>
-          );
-        })}
-      </ul>
+            if (changePercentage !== 0) {
+              changeSign = changePercentage >= 0 ? "+" : "-";
+              className =
+                changePercentage >= 0 ? "positive-change" : "negative-change";
+            }
 
+            return (
+              <li key={symbol} className={className}>
+                {symbol}: {cryptoPrices[symbol]}{" "}
+                {changePercentage !== undefined
+                  ? `${changeSign}${Math.abs(changePercentage).toFixed(4)}%`
+                  : "(N/A)"}
+              </li>
+            );
+          })}
+        </ul>
+      </div>
       <div>
         <h2>Crypto Conversion</h2>
         <label>

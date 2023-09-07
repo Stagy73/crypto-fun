@@ -1,0 +1,17 @@
+.list {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+li {
+  gap: 10px;
+  margin: 10px;
+}
+
+.positive-change {
+  color: green; /* Change the text color to green for positive change */
+}
+
+.negative-change {
+  color: red; /* Change the text color to red for negative change */
+}
