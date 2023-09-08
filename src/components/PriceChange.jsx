@@ -138,9 +138,11 @@ function CryptoPriceConverter() {
                   return (
                     <li key={symbol} className={className}>
                       <div className="liIinsideLi">
-                        <div>{symbol}:</div>
-                        <div>{cryptoPrices[symbol].toFixed(8)}</div>
-                        <div>
+                        <div className="liIinsideLi">{symbol}:</div>
+                        <div className="liIinsideLi">
+                          {cryptoPrices[symbol].toFixed(8)}
+                        </div>
+                        <div className="liIinsideLi">
                           {changePercentage !== undefined
                             ? `${changeSign}${Math.abs(
                                 changePercentage
@@ -160,8 +162,8 @@ function CryptoPriceConverter() {
                   return (
                     <li key={symbol}>
                       <div className="liIinsideLi">
-                        <div className="liIinsideLi">{symbol}:</div>
-                        <div>
+                        <div className="liIinsideLi  color24">{symbol}:</div>
+                        <div className="liIinsideLi  color24">
                           {previousPrices[symbol] !== undefined
                             ? previousPrices[symbol].toFixed(8)
                             : "N/A"}
