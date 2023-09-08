@@ -13,6 +13,7 @@ body {
   align-items: center;
   font-family: Arial, sans-serif;
   color: #333; /* Text color */
+  overflow-y: auto;
 }
 
 @keyframes gradientAnimation {
@@ -25,4 +26,9 @@ body {
   100% {
     background-position: 0% 50%;
   }
+}
+html,
+body {
+  margin: 0;
+  padding: 0;
 }
