@@ -1,6 +1,7 @@
 import "./App.css";
 import Header from "./components/header";
 import PriceChange from "./components/PriceChange";
+import CryptocurrencyDisclaimer from "./components/paragraphe";
 
 function App() {
   return (
@@ -8,6 +9,7 @@ function App() {
       {/* <Header /> */}
       {/* <CryptoPrice /> */}
       <PriceChange />
+      <CryptocurrencyDisclaimer />
     </>
   );
 }
