@@ -1,11 +1,12 @@
 import "./App.css";
 
-import CryptoPrice from "./components/CryptoPrice";
+import PriceChange from "./components/PriceChange";
 
 function App() {
   return (
     <>
-      <CryptoPrice />
+      {/* <CryptoPrice /> */}
+      <PriceChange />
     </>
   );
 }

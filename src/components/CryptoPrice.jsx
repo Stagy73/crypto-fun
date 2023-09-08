@@ -64,7 +64,7 @@ function CryptoPriceConverter() {
     fetchCryptoPrices();
 
     // Set up interval to fetch prices periodically
-    const intervalId = setInterval(fetchCryptoPrices, 15000); // Fetch every 5 seconds for more frequent updates
+    const intervalId = setInterval(fetchCryptoPrices, 15000); // Fetch every 15 seconds for updates
 
     // Cleanup interval on component unmount
     return () => clearInterval(intervalId);
@@ -151,15 +151,15 @@ function CryptoPriceConverter() {
           {conversionData.convertedPrice.toFixed(8)}
         </p>
         <p>
-          {" "}
           <a
             href="https://www.binance.com/fr/activity/referral-entry/CPA?ref=CPA_00QR21HSA3"
             target="_blank"
+            rel="noopener noreferrer"
           >
             <button>Buy It Now</button>
           </a>
         </p>
-        <p> affiliate link !!make me some money !!!</p>
+        <p>affiliate link!! Make me some money !!!</p>
       </div>
     </div>
   );

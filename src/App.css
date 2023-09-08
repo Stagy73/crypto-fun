@@ -1,0 +1,24 @@
+body {
+  background: linear-gradient(45deg, #ff00cc, #3333ff, #33cc33, #ffff00);
+  background-size: 400% 400%;
+  animation: gradientAnimation 15s infinite;
+  height: 100vh;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Arial, sans-serif;
+  color: #333; /* Text color */
+}
+
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
