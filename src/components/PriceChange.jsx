@@ -160,7 +160,7 @@ function CryptoPriceConverter() {
                   return (
                     <li key={symbol}>
                       <div className="liIinsideLi">
-                        <div>{symbol}:</div>
+                        <div className="liIinsideLi">{symbol}:</div>
                         <div>
                           {previousPrices[symbol] !== undefined
                             ? previousPrices[symbol].toFixed(8)

@@ -57,17 +57,21 @@ label {
 }
 
 select {
-  width: 150px;
+  width: 200px; /* Increase the width as needed */
+  padding: 10px; /* Add padding for a larger appearance */
   margin-bottom: 10px;
 }
+
 button {
-  width: 150px;
+  width: 200px; /* Increase the width as needed */
+  padding: 10px; /* Add padding for a larger appearance */
   border-radius: 20px;
 }
 
 input {
-  width: 150px;
-  margin-bottom: 10px;
+  width: 200px; /* Increase the width as needed */
+  padding: 10px; /* Add padding for a larger appearance */
+  border-radius: 20px;
 }
 
 h2 {
@@ -90,4 +94,5 @@ h2 {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  font-size: larger;
 }
