@@ -1,24 +1,13 @@
 body {
-  margin: 0;
-  padding: 0;
-  height: 300vh; /* Ajouter cette règle pour que la body prenne toute la hauteur de la fenêtre du navigateur */
-  position: relative; /* Rendre la position relative pour que le pseudo-élément soit positionné par rapport à cette body */
-}
-
-body::before {
   content: "";
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: url("/background.jpg");
+  background: url("/background.png");
   background-size: cover;
   background-repeat: no-repeat;
-  opacity: 0.5;
-  z-index: -1;
 
   background-attachment: fixed;
 }
-
-/* Le contenu de la body sera au premier plan, au-dessus du pseudo-élément */
