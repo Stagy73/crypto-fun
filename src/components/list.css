@@ -4,7 +4,6 @@
   justify-content: space-around;
   align-items: center;
   font-size: larger;
-  margin-top: 50rem;
 }
 li {
   gap: 10px;
@@ -19,22 +18,20 @@ li {
 
 .negative-change {
   font-size: larger;
-  color: rgb(
-    242,
-    114,
-    114
-  ); /* Change the text color to red for negative change */
+  color: #590707; /* Change the text color to red for negative change */
 }
 
 p {
-  color: aliceblue;
+  color: rgb(0, 5, 9);
   font-size: larger;
   text-align: center;
-  width: 120rem;
+  width: 90rem;
 }
 
 h1 {
-  color: aliceblue;
+  color: rgb(0, 5, 9);
+  text-align: center;
+  font-size: 3rem; /* Augmenter la taille du texte */
 }
 
 .convert {
@@ -70,7 +67,7 @@ input {
 }
 
 h2 {
-  color: aliceblue;
+  color: rgb(0, 3, 5);
 }
 
 .now {
@@ -89,17 +86,59 @@ h2 {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  font-size: larger;
+  /* font-size: medium; */
 }
 
 .color24 {
   color: aliceblue;
 }
 .paragraphe {
-  width: 1400px;
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.6rem; /* Augmenter la taille du texte */
+  line-height: 1.5; /* Augmenter l'espacement entre les lignes */
+  word-spacing: 0.2rem; /* Augmenter l'espacement entre les mots */
 }
 
 .ulpara {
-  color: aliceblue;
+  color: rgb(0, 5, 9);
+  text-align: center;
+  align-items: center;
+}
+
+.entete {
+  align-items: center;
+}
+
+.ulparas {
+  color: rgb(0, 5, 9);
+  text-align: center;
+  font-size: 1.5rem; /* Augmenter la taille du texte */
+  line-height: 1.5; /* Augmenter l'espacement entre les lignes */
+  word-spacing: 0.2rem; /* Augmenter l'espacement entre les mots */
+}
+
+.discla {
+  text-align: center;
+  font-size: 1.5rem; /* Augmenter la taille du texte */
+  line-height: 1.5; /* Augmenter l'espacement entre les lignes */
+  word-spacing: 0.2rem; /* Augmenter l'espacement entre les mots */
+}
+
+.lidiscla {
+  font-size: large;
+
+  color: rgb(0, 5, 9);
+  font-size: 1.5rem; /* Augmenter la taille du texte */
+  line-height: 1.5; /* Augmenter l'espacement entre les lignes */
+  word-spacing: 0.2rem; /* Augmenter l'espacement entre les mots */
+}
+h2 {
+  color: rgb(0, 5, 9);
+}
+
+.no-bullets {
+  list-style: none; /* Supprimer les marqueurs de liste */
 }

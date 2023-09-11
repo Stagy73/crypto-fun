@@ -1,34 +1,22 @@
 body {
-  background: linear-gradient(
-    45deg,
-    #333333,
-    #666666
-  ); /* Black and grey gradient */
-  background-size: 400% 400%;
-  animation: gradientAnimation 15s infinite;
-  height: 100vh;
-  margin: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-family: Arial, sans-serif;
-  color: #333; /* Text color */
-  /* overflow-y: auto; */
-}
-
-@keyframes gradientAnimation {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-html,
-body {
   margin: 0;
   padding: 0;
+  height: 300vh; /* Ajouter cette règle pour que la body prenne toute la hauteur de la fenêtre du navigateur */
+  position: relative; /* Rendre la position relative pour que le pseudo-élément soit positionné par rapport à cette body */
 }
+
+body::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url("/background.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  opacity: 0.5;
+  z-index: -1;
+}
+
+/* Le contenu de la body sera au premier plan, au-dessus du pseudo-élément */

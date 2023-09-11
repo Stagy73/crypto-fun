@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 import "./list.css";
 
@@ -120,16 +120,17 @@ function CryptoPriceConverter() {
 
   return (
     <div>
+      {" "}
+      <h1>Simple Crypto prices & converter</h1>
       <div className="list">
         {!isLoading && (
           <>
             {" "}
             <div className="now">
-              <div>
-                <h1>simple Crypto price and converter</h1>
-              </div>
+              <div></div>
+
               <h2>Crypto Prices</h2>
-              <ul className="ul">
+              <ul className="ul ,no-bullets">
                 {symbols.map((symbol) => {
                   const changePercentage = changePercentages[symbol];
                   const changeSign = changePercentage >= 0 ? "+" : "-"; // + or - sign
@@ -160,7 +161,7 @@ function CryptoPriceConverter() {
             </div>
             <div className="yesterday">
               <h2> 24 Hours Ago</h2>
-              <ul className="ul">
+              <ul className="ul , no-bullets">
                 {symbols.map((symbol) => {
                   return (
                     <li key={symbol}>
@@ -181,7 +182,24 @@ function CryptoPriceConverter() {
         )}
       </div>
       <div className="convert">
-        <h1>Crypto Conversion</h1>
+        <p className="ulparas">
+          Cryptocurrency conversion and price tracking are two crucial aspects
+          of the cryptocurrency ecosystem. Cryptocurrency conversion allows
+          users to convert one cryptocurrency into another, facilitating
+          exchanges and transactions in this ever-evolving digital space.
+          Whether you want to trade Bitcoin for Ethereum or simply monitor
+          real-time prices of different cryptocurrencies, conversion and price
+          tracking tools provide you with market visibility. These services
+          enable you to make informed decisions about your cryptocurrency
+          investments. With the inherent volatility in this digital financial
+          sector, having access to accurate, up-to-date price information is
+          essential. Cryptocurrency conversion and price tracking are key
+          elements for navigating the ever-changing world of cryptocurrencies
+          and making the most of your digital assets. Whether you're a seasoned
+          investor or a curious newcomer, these tools help you stay informed and
+          make informed decisions in the exciting realm of cryptocurrencies.
+        </p>
+        <h2>Crypto Conversion</h2>
         <label>Convert</label>
         <input
           type="text"
@@ -206,7 +224,7 @@ function CryptoPriceConverter() {
           ))}
         </select>
         <button onClick={handleConvert}>Convert</button>
-        <p>
+        <p className="buydiscla">
           {conversionData.amountUSD} USD to {conversionData.toCrypto}:
           {conversionData.convertedPrice.toFixed(8)}
         </p>
@@ -219,23 +237,6 @@ function CryptoPriceConverter() {
           >
             <button>Buy It Now</button>
           </a>
-        </p>
-        <p>
-          Cryptocurrency conversion and price tracking are two crucial aspects
-          of the cryptocurrency ecosystem. Cryptocurrency conversion allows
-          users to convert one cryptocurrency into another, facilitating
-          exchanges and transactions in this ever-evolving digital space.
-          Whether you want to trade Bitcoin for Ethereum or simply monitor
-          real-time prices of different cryptocurrencies, conversion and price
-          tracking tools provide you with market visibility. These services
-          enable you to make informed decisions about your cryptocurrency
-          investments. With the inherent volatility in this digital financial
-          sector, having access to accurate, up-to-date price information is
-          essential. Cryptocurrency conversion and price tracking are key
-          elements for navigating the ever-changing world of cryptocurrencies
-          and making the most of your digital assets. Whether you're a seasoned
-          investor or a curious newcomer, these tools help you stay informed and
-          make informed decisions in the exciting realm of cryptocurrencies.
         </p>
       </div>
     </div>

@@ -1,15 +1,14 @@
 import "./Footer.css";
+
 function Footer() {
   return (
     <footer>
-      <div className="Footer">
-        <p>
+      <div className="footercontainer">
+        <p className="footertext">
           &copy; {new Date().getFullYear()} A simple Crypto Converter & Price
           Tracker
         </p>
-        <div>
-          <a href="./sitemap.xml">SiteMap</a>
-        </div>
+        <a href="./sitemap.xml">SiteMap</a>
       </div>
     </footer>
   );

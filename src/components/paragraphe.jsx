@@ -1,42 +1,41 @@
-import React from "react";
 import "./list.css";
 
 function CryptocurrencyDisclaimer() {
   return (
     <div className="paragraphe">
-      <h1>Disclaimer: Risks of Cryptocurrency Trading</h1>
-      <p>
+      <h2>Disclaimer: Risks of Cryptocurrency Trading</h2>
+      <p className="">
         Cryptocurrency trading carries a high level of risk and may not be
         suitable for all investors. The prices of cryptocurrencies are extremely
         volatile and can fluctuate rapidly. Before engaging in cryptocurrency
         trading, please consider the following risks:
       </p>
-      <ul className="ulpara">
-        <li className="ulpara">
+      <ol className="no-bullets">
+        <li className="lidiscla">
           <strong>Price Volatility:</strong> Cryptocurrency prices can change
           significantly in a short period. You may experience both substantial
           gains and losses.
         </li>
-        <li className="ulpara">
+        <li className="lidiscla">
           <strong>Lack of Regulation:</strong> Cryptocurrencies are not
           regulated by any central authority or government. This means there may
           be limited investor protection.
         </li>
-        <li className="ulpara">
+        <li className="lidiscla">
           <strong>Security Risks:</strong> Crypto wallets and exchanges can be
           vulnerable to hacking and security breaches. It's essential to use
           secure platforms and safeguard your private keys.
         </li>
-        <li className="ulpara">
+        <li className="lidiscla">
           <strong>Market Manipulation:</strong> Cryptocurrency markets can be
           susceptible to manipulation, pump-and-dump schemes, and fraudulent
           activities.
         </li>
-        <li className="ulpara">
+        <li className="lidiscla">
           <strong>Loss of Funds:</strong> There's a risk of losing your entire
           investment in cryptocurrency trading.
         </li>
-      </ul>
+      </ol>
       <p>
         It's crucial to conduct thorough research, understand the risks, and
         only invest what you can afford to lose. Cryptocurrency trading
