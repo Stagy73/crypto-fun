@@ -17,6 +17,8 @@ body::before {
   background-repeat: no-repeat;
   opacity: 0.5;
   z-index: -1;
+
+  background-attachment: fixed;
 }
 
 /* Le contenu de la body sera au premier plan, au-dessus du pseudo-élément */

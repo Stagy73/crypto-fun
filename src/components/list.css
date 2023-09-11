@@ -42,7 +42,7 @@ h1 {
 }
 
 label {
-  color: aliceblue;
+  color: rgb(0, 6, 11);
   margin-right: 10px;
   gap: 20px;
   font-size: larger;
@@ -81,6 +81,7 @@ h2 {
   flex-direction: column;
   align-items: center;
   margin: 50px;
+  color: black;
 }
 .liIinsideLi {
   display: flex;
@@ -90,7 +91,7 @@ h2 {
 }
 
 .color24 {
-  color: aliceblue;
+  color: rgb(0, 7, 14);
 }
 .paragraphe {
   display: flex;
