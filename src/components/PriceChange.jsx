@@ -125,7 +125,10 @@ function CryptoPriceConverter() {
           <>
             {" "}
             <div className="now">
-              <h1>Crypto Prices</h1>
+              <div>
+                <h1>simple Crypto price and converter</h1>
+              </div>
+              <h2>Crypto Prices</h2>
               <ul className="ul">
                 {symbols.map((symbol) => {
                   const changePercentage = changePercentages[symbol];
@@ -156,7 +159,7 @@ function CryptoPriceConverter() {
               </ul>
             </div>
             <div className="yesterday">
-              <h1> 24 Hours Ago</h1>
+              <h2> 24 Hours Ago</h2>
               <ul className="ul">
                 {symbols.map((symbol) => {
                   return (
@@ -216,6 +219,23 @@ function CryptoPriceConverter() {
           >
             <button>Buy It Now</button>
           </a>
+        </p>
+        <p>
+          Cryptocurrency conversion and price tracking are two crucial aspects
+          of the cryptocurrency ecosystem. Cryptocurrency conversion allows
+          users to convert one cryptocurrency into another, facilitating
+          exchanges and transactions in this ever-evolving digital space.
+          Whether you want to trade Bitcoin for Ethereum or simply monitor
+          real-time prices of different cryptocurrencies, conversion and price
+          tracking tools provide you with market visibility. These services
+          enable you to make informed decisions about your cryptocurrency
+          investments. With the inherent volatility in this digital financial
+          sector, having access to accurate, up-to-date price information is
+          essential. Cryptocurrency conversion and price tracking are key
+          elements for navigating the ever-changing world of cryptocurrencies
+          and making the most of your digital assets. Whether you're a seasoned
+          investor or a curious newcomer, these tools help you stay informed and
+          make informed decisions in the exciting realm of cryptocurrencies.
         </p>
       </div>
     </div>

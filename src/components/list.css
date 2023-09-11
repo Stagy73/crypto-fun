@@ -4,6 +4,7 @@
   justify-content: space-around;
   align-items: center;
   font-size: larger;
+  margin-top: 50rem;
 }
 li {
   gap: 10px;
@@ -24,14 +25,12 @@ li {
     114
   ); /* Change the text color to red for negative change */
 }
-body {
-  display: flex;
-  flex-direction: row;
-}
 
 p {
   color: aliceblue;
   font-size: larger;
+  text-align: center;
+  width: 120rem;
 }
 
 h1 {
