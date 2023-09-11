@@ -3,6 +3,7 @@ header {
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
+  background-color: rgb(207, 234, 234);
 }
 .nav {
   display: flex;
