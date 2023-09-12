@@ -3,35 +3,27 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  font-size: larger;
 }
 li {
   gap: 10px;
   margin: 10px;
-  font-size: larger;
+  font-size: 1.2rem;
 }
 
 .positive-change {
-  font-size: larger;
+  font-size: 0.5rem;
   color: rgb(2, 99, 2); /* Change the text color to green for positive change */
 }
 
 .negative-change {
-  font-size: larger;
-  color: #861616; /* Change the text color to red for negative change */
-}
-
-p {
-  color: rgb(0, 5, 9);
-  font-size: larger;
-  text-align: center;
-  width: 90rem;
+  font-size: 0.5rem;
+  color: #590707; /* Change the text color to red for negative change */
 }
 
 h1 {
   color: rgb(0, 5, 9);
   text-align: center;
-  font-size: 3rem; /* Augmenter la taille du texte */
+  font-size: 2rem; /* Augmenter la taille du texte */
 }
 
 .convert {
@@ -42,26 +34,31 @@ h1 {
 }
 
 label {
-  color: rgb(0, 6, 11);
+  color: rgb(0, 7, 13);
   margin-right: 10px;
   gap: 20px;
-  font-size: larger;
+  font-size: 1.6;
 }
 
 select {
-  width: 200px; /* Increase the width as needed */
+  width: 10rem; /* Increase the width as needed */
   padding: 10px; /* Add padding for a larger appearance */
   margin-bottom: 10px;
 }
 
-button {
-  width: 200px; /* Increase the width as needed */
+.buttonconvert {
+  width: 20rem; /* Increase the width as needed */
+  padding: 10px; /* Add padding for a larger appearance */
+  border-radius: 20px;
+}
+.buttonbuy {
+  width: 20rem; /* Increase the width as needed */
   padding: 10px; /* Add padding for a larger appearance */
   border-radius: 20px;
 }
 
 input {
-  width: 200px; /* Increase the width as needed */
+  width: 10rem; /* Increase the width as needed */
   padding: 10px; /* Add padding for a larger appearance */
   border-radius: 20px;
 }
@@ -87,20 +84,45 @@ h2 {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  /* font-size: medium; */
+  font-size: 1rem;
 }
 
 .color24 {
   color: rgb(0, 7, 14);
 }
+/* In your list.css file */
 .paragraphe {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  font-size: 1.6rem; /* Augmenter la taille du texte */
-  line-height: 1.5; /* Augmenter l'espacement entre les lignes */
-  word-spacing: 0.2rem; /* Augmenter l'espacement entre les mots */
+  font-size: 1.2rem;
+  line-height: 1.5;
+  word-spacing: 0.2rem;
+  max-width: 800px; /* Set a maximum width for your content */
+  margin: 0 auto; /* Center the container horizontally */
+}
+
+/* Style for the h2 element (optional) */
+.paragraphe h2 {
+  font-size: 1.5rem; /* Adjust the font size for the h2 element */
+}
+
+/* Style for the ol element (optional) */
+.paragraphe ol {
+  list-style-type: decimal;
+  margin-left: 1.5rem; /* Adjust the left margin for the ordered list */
+  padding-left: 0; /* Remove default padding from the ordered list */
+}
+
+/* Style for the li elements (optional) */
+.paragraphe li {
+  margin-bottom: 1rem; /* Add spacing between list items */
+}
+
+/* Style for the strong elements (optional) */
+.paragraphe strong {
+  font-weight: bold; /* Set the font weight for strong elements */
 }
 
 .ulpara {
@@ -116,30 +138,43 @@ h2 {
 .ulparas {
   color: rgb(0, 5, 9);
   text-align: center;
-  font-size: 1.5rem; /* Augmenter la taille du texte */
+  align-items: center;
+  font-size: 1.2rem; /* Augmenter la taille du texte */
   line-height: 1.5; /* Augmenter l'espacement entre les lignes */
   word-spacing: 0.2rem; /* Augmenter l'espacement entre les mots */
+  width: 120vh;
 }
 
 .discla {
   text-align: center;
-  font-size: 1.5rem; /* Augmenter la taille du texte */
+  font-size: 1.2rem; /* Augmenter la taille du texte */
   line-height: 1.5; /* Augmenter l'espacement entre les lignes */
   word-spacing: 0.2rem; /* Augmenter l'espacement entre les mots */
 }
 
 .lidiscla {
-  font-size: large;
+  font-size: 1.2rem;
 
   color: rgb(0, 5, 9);
-  font-size: 1.5rem; /* Augmenter la taille du texte */
+  font-size: 1.2rem; /* Augmenter la taille du texte */
   line-height: 1.5; /* Augmenter l'espacement entre les lignes */
   word-spacing: 0.2rem; /* Augmenter l'espacement entre les mots */
 }
 h2 {
   color: rgb(0, 5, 9);
+  font-size: 1.4;
 }
 
 .no-bullets {
   list-style: none; /* Supprimer les marqueurs de liste */
+}
+
+.referal {
+  align-items: center;
+}
+
+.entete {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }

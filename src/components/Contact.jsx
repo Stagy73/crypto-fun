@@ -6,7 +6,7 @@ function ContactPage() {
       <div className="h1p">
         {" "}
         <h1>Contact Us</h1>
-        <p>
+        <p className="pcontact">
           If you have any questions or feedback, please feel free to contact us
           using the form below.
         </p>
@@ -26,7 +26,9 @@ function ContactPage() {
           <textarea id="message" name="message" rows="4"></textarea>
         </div>
         <div>
-          <button type="submit">Submit</button>
+          <button className="buyitnowref" type="submit">
+            Submit
+          </button>
         </div>
       </form>
     </div>

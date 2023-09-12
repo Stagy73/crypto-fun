@@ -1,6 +1,16 @@
-/* About.css */
+/* In your About.css file */
+.center-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 50vh; /* This makes the container take up the full viewport height */
+}
+
 .pabout {
-  text-align: center important;
-  align-items: center important;
-  width: 50rem;
+  /* Your existing styles for the paragraph */
+  text-align: center;
+  /* You can add more styles as needed */
+  width: 120vh;
+  font-size: 1.2rem;
 }

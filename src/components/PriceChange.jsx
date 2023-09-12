@@ -159,7 +159,26 @@ function CryptoPriceConverter() {
   return (
     <div>
       {" "}
-      <h1>Simple Crypto prices & converter</h1>
+      <div className="entete">
+        <h1>Simple Crypto prices & converter</h1>
+        <p className="ulparas">
+          Cryptocurrency conversion and price tracking are two crucial aspects
+          of the cryptocurrency ecosystem. Cryptocurrency conversion allows
+          users to convert one cryptocurrency into another, facilitating
+          exchanges and transactions in this ever-evolving digital space.
+          Whether you want to trade Bitcoin for Ethereum or simply monitor
+          real-time prices of different cryptocurrencies, conversion and price
+          tracking tools provide you with market visibility. These services
+          enable you to make informed decisions about your cryptocurrency
+          investments. With the inherent volatility in this digital financial
+          sector, having access to accurate, up-to-date price information is
+          essential. Cryptocurrency conversion and price tracking are key
+          elements for navigating the ever-changing world of cryptocurrencies
+          and making the most of your digital assets. Whether you're a seasoned
+          investor or a curious newcomer, these tools help you stay informed and
+          make informed decisions in the exciting realm of cryptocurrencies.
+        </p>
+      </div>
       <div className="list">
         {!isLoading && (
           <>
@@ -220,23 +239,6 @@ function CryptoPriceConverter() {
         )}
       </div>
       <div className="convert">
-        <p className="ulparas">
-          Cryptocurrency conversion and price tracking are two crucial aspects
-          of the cryptocurrency ecosystem. Cryptocurrency conversion allows
-          users to convert one cryptocurrency into another, facilitating
-          exchanges and transactions in this ever-evolving digital space.
-          Whether you want to trade Bitcoin for Ethereum or simply monitor
-          real-time prices of different cryptocurrencies, conversion and price
-          tracking tools provide you with market visibility. These services
-          enable you to make informed decisions about your cryptocurrency
-          investments. With the inherent volatility in this digital financial
-          sector, having access to accurate, up-to-date price information is
-          essential. Cryptocurrency conversion and price tracking are key
-          elements for navigating the ever-changing world of cryptocurrencies
-          and making the most of your digital assets. Whether you're a seasoned
-          investor or a curious newcomer, these tools help you stay informed and
-          make informed decisions in the exciting realm of cryptocurrencies.
-        </p>
         <h2>Crypto Conversion</h2>
         <label>Convert</label>
         <input
@@ -261,19 +263,21 @@ function CryptoPriceConverter() {
             </option>
           ))}
         </select>
-        <button onClick={handleConvert}>Convert</button>
+        <button className="buttonconvert" onClick={handleConvert}>
+          Convert
+        </button>
         <p className="buydiscla">
           {conversionData.amountUSD} USD to {conversionData.toCrypto}:
           {conversionData.convertedPrice.toFixed(8)}
         </p>
-        <p>
+        <p className=" referal">
           {" "}
           <a
             href="https://www.binance.com/fr/activity/referral-entry/CPA?ref=CPA_00QR21HSA3"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <button>Buy It Now</button>
+            <button className="buttonbuy">Buy It Now</button>
           </a>
         </p>
       </div>

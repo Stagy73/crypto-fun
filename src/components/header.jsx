@@ -3,12 +3,21 @@ import { Link } from "react-router-dom";
 
 function Header() {
   return (
-    <header>
+    <header className="header">
       <nav className="nav">
-        <Link to="/">Home</Link> {/* Use Link for homepage */}
-        <Link to="/about">About</Link>
-        <Link to="/Contact">Contact</Link>
-        <Link to="/Disclaimer">Disclaimer</Link>
+        <Link className="nav" to="/">
+          Home
+        </Link>{" "}
+        {/* Use Link for homepage */}
+        <Link className="nav" to="/about">
+          About
+        </Link>
+        <Link className="nav" to="/Contact">
+          Contact
+        </Link>
+        <Link className="nav" to="/Disclaimer">
+          Disclaimer
+        </Link>
         {/* Add more navigation links as needed */}
       </nav>
     </header>

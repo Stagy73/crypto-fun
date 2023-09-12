@@ -1,8 +1,9 @@
 import "./About.css";
 function About() {
   return (
-    <div>
-      <pre className="pabout">
+    <div className="center-content">
+      <h1>About us</h1>
+      <p className="pabout">
         Our app is designed to keep you informed about the latest prices of the
         top 10 cryptocurrencies in real-time. Whether you're an investor or
         simply curious about the crypto market, we've got you covered. You can
@@ -11,7 +12,7 @@ function About() {
         any of these cryptocurrencies quickly and accurately. Stay updated and
         make informed decisions with our crypto price tracking and conversion
         tool!
-      </pre>
+      </p>
     </div>
   );
 }
