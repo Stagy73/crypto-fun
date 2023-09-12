@@ -8,6 +8,7 @@ import Footer from "./components/Footer";
 import AboutPage from "./components/About"; // Import the AboutPage component
 import CryptoPriceConverter from "./components/PriceChange"; // Import the HomePage component
 import ContactPage from "./components/Contact"; // Import the ContactPage component
+import CryptoSignalChart from "./components/Signal";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<CryptoPriceConverter />} />
+        <Route path="/signal" element={<CryptoSignalChart />} />
         <Route path="/Disclaimer" element={<CryptocurrencyDisclaimer />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/contact" element={<ContactPage />} />

@@ -1,0 +1,18 @@
+#cryptoChart {
+  opacity: 80%;
+  width: 120vh;
+  height: 80vh;
+}
+
+/* Signal.css */
+
+/* Target the ReactApexChart component by class name or any other selector */
+.react-apex-chart {
+    width:120vh
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.3
+  ); /* Adjust the opacity value (0.3) as needed */
+}
