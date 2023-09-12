@@ -1,32 +1,16 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import ApexCharts from "react-apexcharts";
 import axios from "axios";
+import "apexcharts/dist/apexcharts.css";
+import * as d3 from "d3"; // Import D3.js
+import "./Signal.css";
 
 const CryptoSignalChart = () => {
-  const [chartOptions, setChartOptions] = useState({
-    chart: {
-      type: "candlestick",
-      height: 400,
-    },
-    xaxis: {
-      type: "datetime",
-    },
-    yaxis: {
-      tooltip: {
-        enabled: true,
-      },
-    },
-  });
-
-  const [chartSeries, setChartSeries] = useState([
-    {
-      data: [],
-    },
-  ]);
-
+  const [chartData, setChartData] = useState([]);
   const [pairs, setPairs] = useState([]);
   const [selectedPair, setSelectedPair] = useState("");
   const [selectedInterval, setSelectedInterval] = useState("1h");
+  const [triangleData, setTriangleData] = useState([]);
 
   const handlePairChange = (event) => {
     setSelectedPair(event.target.value);
@@ -44,7 +28,7 @@ const CryptoSignalChart = () => {
         );
         const tradingPairs = response.data.symbols.map((pair) => pair.symbol);
         setPairs(tradingPairs);
-        setSelectedPair(tradingPairs[0]); // Set the default pair to the first one
+        setSelectedPair(tradingPairs[0]);
       } catch (error) {
         console.error("Error fetching trading pairs:", error);
       }
@@ -79,7 +63,7 @@ const CryptoSignalChart = () => {
           ],
         }));
 
-        setChartSeries([{ data: candlestickData }]);
+        setChartData([{ data: candlestickData }]);
       } catch (error) {
         console.error("Error fetching data:", error);
       }
@@ -88,10 +72,90 @@ const CryptoSignalChart = () => {
     fetchData();
   }, [selectedPair, selectedInterval]);
 
-  return (
-    <div>
-      <h1>Cryptocurrency Price Chart</h1>
+  const chartOptions = {
+    chart: {
+      animations: {
+        enabled: true,
+        dynamicAnimation: {
+          speed: 1000,
+        },
+      },
+      zoom: {
+        enabled: true,
+        type: "x",
+        autoScaleYaxis: true,
+      },
+      toolbar: {
+        show: true,
+        tools: {
+          download: false,
+          selection: true,
+          zoom: true,
+          zoomin: true,
+          zoomout: true,
+          pan: true,
+          reset: true,
+          customIcons: [
+            {
+              icon: "plus",
+              index: 0,
+              title: "Add Indicator",
+              class: "custom-icon",
+              click(chartContext, seriesIndex, config) {
+                // Handle the click event for your custom icon here
+                // For example, open a modal to add an indicator
+              },
+            },
+          ],
+        },
+      },
+      markers: {
+        size: 5,
+        hover: {
+          size: 7,
+        },
+      },
+    },
+    dataLabels: {
+      enabled: true,
+    },
+    xaxis: {},
+    yaxis: {},
+  };
 
+  const addTriangle = (event) => {
+    const { offsetX, offsetY } = event.nativeEvent;
+    const { xaxis, yaxis } = chartRef.current.props.options.xaxis;
+    const xValue = xaxis.categories[Math.round(offsetX)];
+    const yValue = yaxis.categories[Math.round(offsetY)];
+    const newTriangle = { x: xValue, y: yValue };
+    setTriangleData([...triangleData, newTriangle]);
+  };
+
+  const drawTriangles = () => {
+    const svg = d3.select(".apexcharts-canvas");
+    svg.selectAll("polygon").remove();
+
+    triangleData.forEach((triangle, index) => {
+      const x = chartRef.current.w.globals.xAxisScale(triangle.x);
+      const y = chartRef.current.w.globals.yAxisScale(triangle.y);
+
+      const polygon = svg
+        .append("polygon")
+        .attr("points", `${x - 5},${y} ${x},${y - 10} ${x + 5},${y}`)
+        .attr("fill", "red");
+    });
+  };
+
+  useEffect(() => {
+    drawTriangles();
+  }, [triangleData]);
+
+  const chartRef = useRef(null);
+
+  return (
+    <div className="chart">
+      <h1>Cryptocurrency Price Chart</h1>
       <label>Select a Cryptocurrency Pair:</label>
       <select value={selectedPair} onChange={handlePairChange}>
         {pairs.map((pair) => (
@@ -100,7 +164,6 @@ const CryptoSignalChart = () => {
           </option>
         ))}
       </select>
-
       <label>Select Time Interval:</label>
       <select value={selectedInterval} onChange={handleIntervalChange}>
         <option value="1d">1 Day</option>
@@ -110,13 +173,26 @@ const CryptoSignalChart = () => {
         <option value="5m">5 Minutes</option>
         <option value="1m">1 Minute</option>
       </select>
-
-      <ApexCharts
-        options={chartOptions}
-        series={chartSeries}
-        type="candlestick"
-        height={400}
-      />
+      <div
+        style={{
+          width: "90vw",
+          height: "120vh",
+          margin: "0 auto",
+        }}
+        onClick={addTriangle}
+      >
+        <ApexCharts
+          options={chartOptions}
+          series={chartData}
+          type="candlestick"
+          height="100%"
+          style={{
+            marginLeft: "30px",
+            marginRight: "100px",
+          }}
+          ref={chartRef}
+        />
+      </div>
     </div>
   );
 };
