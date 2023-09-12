@@ -5,7 +5,7 @@
   justify-content: space-around;
   align-items: baseline;
   background-color: rgb(0, 5, 5);
-  background: url("./header.jpg");
+  background: url("/header.jpg");
   background-size: cover; /* This property scales the image to cover the entire header */
   height: 300px; /* Set the desired height for your header */
   /* Other styles for your header */
