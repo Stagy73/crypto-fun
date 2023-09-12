@@ -13,11 +13,13 @@ li {
 .positive-change {
   font-size: 0.5rem;
   color: rgb(2, 99, 2); /* Change the text color to green for positive change */
+  background-color: aliceblue;
 }
 
 .negative-change {
   font-size: 0.5rem;
   color: #590707; /* Change the text color to red for negative change */
+  background-color: aliceblue;
 }
 
 h1 {
