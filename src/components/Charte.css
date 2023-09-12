@@ -20,5 +20,8 @@
 }
 
 .apexcharts-toolbar {
-  background-color: aliceblue;
+  background-color: rgb(231, 243, 248);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }

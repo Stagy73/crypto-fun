@@ -9,7 +9,7 @@ function Header() {
           Home
         </Link>{" "}
         <Link className="nav" to="/signal">
-          Signal
+          Charte
         </Link>
         <Link className="nav" to="/about">
           About

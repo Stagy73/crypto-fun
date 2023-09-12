@@ -9,7 +9,7 @@ import ApexCharts from "react-apexcharts";
 import axios from "axios";
 
 import * as d3 from "d3"; // Import D3.js
-import "./Signal.css";
+import "./Charte.css";
 
 const CryptoSignalChart = () => {
   const [chartData, setChartData] = useState([]);
@@ -90,12 +90,12 @@ const CryptoSignalChart = () => {
       zoom: {
         enabled: true,
         type: "x",
-        autoScaleYaxis: true,
+        autoScaleYaxis: false,
       },
       toolbar: {
         show: true,
         tools: {
-          download: false,
+          download: true,
           selection: true,
           zoom: true,
           zoomin: true,
@@ -124,7 +124,7 @@ const CryptoSignalChart = () => {
       },
     },
     dataLabels: {
-      enabled: true,
+      enabled: false,
     },
     xaxis: {},
     yaxis: {},
@@ -154,7 +154,8 @@ const CryptoSignalChart = () => {
         .attr("points", `${x - 5},${y} ${x},${y - 10} ${x + 5},${y}`)
         .attr("fill", "red");
 
-      newPolygons.push(polygon);
+      // Store the new polygon in state
+      setPolygons((prevPolygons) => [...prevPolygons, polygon]);
     });
 
     // Store the new polygons in state
@@ -189,8 +190,8 @@ const CryptoSignalChart = () => {
       </select>
       <div
         style={{
-          width: "90vw",
-          height: "120vh",
+          width: "100vw",
+          height: "80vh",
           margin: "0 auto",
         }}
         onClick={addTriangle}
@@ -206,6 +207,10 @@ const CryptoSignalChart = () => {
           }}
           ref={chartRef}
         />
+
+        {polygons.map((polygon, index) => (
+          <polygon key={index} points={polygon.attr("points")} fill="red" />
+        ))}
       </div>
     </div>
   );

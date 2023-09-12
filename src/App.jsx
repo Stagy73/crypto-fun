@@ -1,4 +1,3 @@
-import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom"; // Import BrowserRouter, Routes, and Route
 import "./App.css";
 
@@ -8,7 +7,7 @@ import Footer from "./components/Footer";
 import AboutPage from "./components/About"; // Import the AboutPage component
 import CryptoPriceConverter from "./components/PriceChange"; // Import the HomePage component
 import ContactPage from "./components/Contact"; // Import the ContactPage component
-import CryptoSignalChart from "./components/Signal";
+import CryptoSignalChart from "./components/Charte";
 
 function App() {
   return (

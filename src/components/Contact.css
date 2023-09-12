@@ -34,4 +34,13 @@ p {
 .buyitnowref {
   margin-bottom: 3rem;
   margin-top: 1.5rem;
+  width: 20vh;
+  height: 5vh;
+  border-radius: 1vh;
+  background-color: rgb(79, 137, 162);
+}
+#message {
+  width: 50vh;
+  height: 30vh;
+  border-radius: 1vh;
 }
