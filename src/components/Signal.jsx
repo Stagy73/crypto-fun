@@ -158,7 +158,7 @@ const CryptoSignalChart = () => {
   useEffect(() => {
     drawTriangles();
   }, [triangleData]);
-
+  //comit
   const chartRef = useRef(null);
 
   return (
