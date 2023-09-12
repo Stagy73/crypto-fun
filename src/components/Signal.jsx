@@ -11,6 +11,7 @@ const CryptoSignalChart = () => {
   const [selectedPair, setSelectedPair] = useState("");
   const [selectedInterval, setSelectedInterval] = useState("1h");
   const [triangleData, setTriangleData] = useState([]);
+  const [polygons, setPolygons] = useState([]);
 
   const handlePairChange = (event) => {
     setSelectedPair(event.target.value);
@@ -134,6 +135,8 @@ const CryptoSignalChart = () => {
 
   const drawTriangles = () => {
     const svg = d3.select(".apexcharts-canvas");
+    const newPolygons = [];
+
     svg.selectAll("polygon").remove();
 
     triangleData.forEach((triangle, index) => {
@@ -144,7 +147,12 @@ const CryptoSignalChart = () => {
         .append("polygon")
         .attr("points", `${x - 5},${y} ${x},${y - 10} ${x + 5},${y}`)
         .attr("fill", "red");
+
+      newPolygons.push(polygon);
     });
+
+    // Store the new polygons in state
+    setPolygons(newPolygons);
   };
 
   useEffect(() => {
