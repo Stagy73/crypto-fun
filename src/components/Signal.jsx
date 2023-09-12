@@ -1,7 +1,13 @@
-import React, { useEffect, useState, useRef } from "react";
+import { useEffect, useState, useRef } from "react";
 import ApexCharts from "react-apexcharts";
+
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/apexcharts@3.29.0/dist/apexcharts.css"
+></link>;
+
 import axios from "axios";
-import "apexcharts/dist/apexcharts.css";
+
 import * as d3 from "d3"; // Import D3.js
 import "./Signal.css";
 
