@@ -8,6 +8,8 @@ import AboutPage from "./components/About"; // Import the AboutPage component
 import CryptoPriceConverter from "./components/PriceChange"; // Import the HomePage component
 import ContactPage from "./components/Contact"; // Import the ContactPage component
 import CryptoSignalChart from "./components/Charte";
+/* import ParticleBackground from "./components/ParticleBackground"; */
+import CryptoCardList from "./components/icone";
 
 function App() {
   return (
@@ -20,6 +22,7 @@ function App() {
         <Route path="/Disclaimer" element={<CryptocurrencyDisclaimer />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/contact" element={<ContactPage />} />
+        <Route path="/cards" element={<CryptoCardList />} />
 
         {/* Add more routes for additional pages */}
       </Routes>

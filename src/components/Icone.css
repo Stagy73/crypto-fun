@@ -1,0 +1,22 @@
+.crypto-card-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.crypto-card {
+  flex-basis: 20%;
+  padding: 10px;
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out;
+}
+
+.crypto-card:hover {
+  transform: rotateY(180deg);
+}
+
+.crypto-card h3 {
+  margin-top: 10px;
+}
+
+/* Add your additional styles as needed */

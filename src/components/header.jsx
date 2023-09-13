@@ -11,6 +11,9 @@ function Header() {
         <Link className="nav" to="/signal">
           Charte
         </Link>
+        <Link className="nav" to="/cards">
+          Cards
+        </Link>
         <Link className="nav" to="/about">
           About
         </Link>
