@@ -11,9 +11,34 @@
   cursor: pointer;
   transition: transform 0.3s ease-in-out;
 }
+.crypto-card {
+  width: 200px;
+  height: 300px;
+  perspective: 1000px; /* Adjust the perspective depth to your liking */
+  transform-style: preserve-3d;
+  transition: transform 1s; /* Add a smooth transition effect */
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.9); /* Add a shadow */
+  margin: 10px;
+}
 
 .crypto-card:hover {
-  transform: rotateY(180deg);
+  transform: rotatey(180deg);
+  /* Add other styles like box-shadow, background color, etc. to enhance the visual effect */
+}
+.crypto-card {
+  /* ... */
+  background: linear-gradient(to bottom, #3498db, #2980b9);
+}
+.crypto-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5));
+  pointer-events: none;
+  z-index: 1;
 }
 
 .crypto-card h3 {
