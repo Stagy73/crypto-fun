@@ -1,6 +1,7 @@
 .crypto-card-list {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 .crypto-card {

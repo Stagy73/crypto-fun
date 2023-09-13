@@ -178,7 +178,6 @@ function CryptoPriceConverter() {
           and making the most of your digital assets. Whether you're a seasoned
           investor or a curious newcomer, these tools help you stay informed and
           make informed decisions in the exciting realm of cryptocurrencies.
-          <span className="btc-128"></span>
         </p>
       </div>
       <div className="list">
